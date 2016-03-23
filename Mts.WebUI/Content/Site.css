@@ -1,0 +1,128 @@
+﻿
+body {
+    background: #e9e3e3;
+    color: #000000;
+    font-family: Trebuchet MS, Arial, Times New Roman;
+    font-size: 12px;
+}
+
+#container {
+    background: #e9e3e3;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    width: 900px;
+    height: auto;
+}
+
+#header {
+    background: #e9ea98;
+    height: 50px;
+    width: 900px;
+}
+
+#navigation {
+    background: #5f5858;
+    width: 900px;
+    height: 20px;
+    margin-bottom: 5px;
+}
+#baner{
+    width:900px;
+    height:290px;
+    clear:both;
+    margin-top: 5px;
+    margin-bottom:5px;
+}
+#news {
+    background: #bf9696;
+    float: right;
+    width: 200px;
+    height: 450px;
+    margin-bottom: 0px;
+}
+
+#content {
+    background: #d2d0d2;
+    float: left;
+    width: 695px;
+    height: auto;
+    margin-bottom: 0px;
+}
+
+#clear {
+    height: 0px;
+    margin: 0px 0px 0px 0px;
+    clear: both;
+}
+
+#footer {
+    margin-top: 0px;
+    background: #484444;
+    height: 80px;
+    width: 900px;
+    margin-top: 5px;
+}
+
+h2 {
+    margin: 0px;
+}
+/*!!!!!!!!!!!!!!!!!!!!!  nav styles*/
+#category_container {
+    display: flex;
+    padding: 0px 10px;
+    line-height: 20px;
+    justify-content: space-between;
+    text-align: justify;
+    text-align-last: justify;
+}
+
+.category {
+    display: inline-block;
+    font-size: 12px;
+    font-family: Tahoma;
+    font-weight: bold;
+    color: #e9e3e3;
+}
+
+/* index   offers  */
+div.offers {
+    height: auto;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 0;
+    padding-bottom:1px;
+}
+ol.offers{
+    margin:0 0 0 0;
+    padding:0px;
+}
+
+ol.offers li{
+    padding:0px;
+    text-align: center;
+    display: inline-block;
+    margin-left:4px;
+    float: left;
+    width:227px;
+    height: 130px;      
+    margin-bottom: 0px;
+    
+}
+ol.offers li:first-child{
+    margin-left:0px;
+    border-right: 1px solid rgba(118, 108, 108, 0.78);
+    float: left;
+}
+ol.offers li:last-child{
+    margin-right:0px;
+    border-left: 1px solid rgba(118, 108, 108, 0.78);
+    float:right;
+}
+div.offers h2{
+    margin:10px;
+    font-weight:bold;
+    font-size: 20px;
+}
+
+

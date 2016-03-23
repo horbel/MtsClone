@@ -1,0 +1,43 @@
+﻿@using Mts.Domain;
+@model List<Products>
+@{
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="offers">
+        <h2>Специальные предложения</h2> 
+        @showItem(Model)
+    </div>
+
+    <div class="offers">
+        <h2>Новинки</h2>
+        @showItem(Model)
+    </div>
+
+    <div class="offers">
+        <h2>Хиты продаж</h2>
+        @showItem(Model)
+    </div>
+</body>
+</html>
+
+
+@helper showItem(List<Products> products)
+{
+    <ol class="offers">
+        @foreach (var item in Model)
+        {
+            <li>@item.Brands.Name (@item.ModelName)</li>
+        }
+    </ol>
+}
+
+    

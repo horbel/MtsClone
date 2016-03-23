@@ -1,0 +1,12 @@
+c:\users\алексей\documents\visual studio 2015\Projects\Mts\Mts.Domain\bin\Debug\Mts.Domain.dll
+c:\users\алексей\documents\visual studio 2015\Projects\Mts\Mts.Domain\bin\Debug\Mts.Domain.pdb
+c:\users\алексей\documents\visual studio 2015\Projects\Mts\Mts.Domain\obj\Debug\Mts.Domain.csprojResolveAssemblyReference.cache
+c:\users\алексей\documents\visual studio 2015\Projects\Mts\Mts.Domain\obj\Debug\Mts.Domain.dll
+c:\users\алексей\documents\visual studio 2015\Projects\Mts\Mts.Domain\obj\Debug\Mts.Domain.pdb
+C:\Users\Алексей\documents\visual studio 2015\Projects\Mts\Mts.Domain\bin\Debug\Mts.Domain.dll.config
+C:\Users\Алексей\documents\visual studio 2015\Projects\Mts\Mts.Domain\bin\Debug\EntityFramework.dll
+C:\Users\Алексей\documents\visual studio 2015\Projects\Mts\Mts.Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Алексей\documents\visual studio 2015\Projects\Mts\Mts.Domain\bin\Debug\EntityFramework.xml
+C:\Users\Алексей\documents\visual studio 2015\Projects\Mts\Mts.Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Алексей\documents\visual studio 2015\Projects\Mts\Mts.Domain\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Алексей\documents\visual studio 2015\Projects\Mts\Mts.Domain\bin\Debug\ru\EntityFramework.SqlServer.resources.dll

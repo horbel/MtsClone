@@ -1,0 +1,9 @@
+﻿@model IQueryable<string>
+
+<div id="category_container">
+    @foreach(string category in Model)
+    {
+        <div class="category">@category</div>
+    }
+</div>
+

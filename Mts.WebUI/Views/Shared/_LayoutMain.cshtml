@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" type="text/css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>    
+    <div id="container">
+        <div id="header">
+            <img src="~/Resources/logo.png" width="100" height="50"/> 
+        </div>
+
+        <div id="navigation">@{ Html.RenderAction("Menu", "Nav"); }
+        </div>
+
+        <div id="baner">
+            <img width="900" height="290" src="~/Resources/p8  BTSpeaker.jpg"/>
+        </div>
+
+        <div id="news">
+            <h2>News</h2>
+        </div>
+
+        <div id="content">            
+            @RenderBody()
+        </div>
+
+        <div id="clear">
+        </div>
+
+        <div id="footer">
+            <h2>Footer</h2>
+        </div>
+    </div>
+</body>
+</html>
