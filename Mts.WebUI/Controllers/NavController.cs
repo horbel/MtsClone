@@ -19,5 +19,7 @@ namespace Mts.WebUI.Controllers
             IEnumerable<string> categories = repository.ProductTypes.Select(x => x.Name);
             return PartialView(categories);
         }
+
+      
     }
 }

@@ -1,10 +1,10 @@
 ﻿@using Mts.Domain;
 @model List<Products>
+
 @{
+    ViewBag.Title = "ListByCategory";
     Layout = "~/Views/Shared/_LayoutMain.cshtml";
 }
-
-<!DOCTYPE html>
 
 <html>
 <head>
@@ -13,26 +13,11 @@
 </head>
 <body>
     <div class="offers">
-        <h2>Специальные предложения</h2> 
-        @foreach(var p in Model)
-        {
-            Html.RenderPartial("ProductSummary", p);
-        }
-        
-    </div>
-
-    <div class="offers">
-        <h2>Новинки</h2>
-        @showItem(Model)
-    </div>
-
-    <div class="offers">
-        <h2>Хиты продаж</h2>
+        <h2>@Model.First().ProductTypes.Name</h2>
         @showItem(Model)
     </div>
 </body>
 </html>
-
 
 @helper showItem(List<Products> products)
 {
@@ -44,4 +29,3 @@
     </ol>
 }
 
-    

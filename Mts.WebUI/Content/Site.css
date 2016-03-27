@@ -87,11 +87,58 @@ h2 {
 }
 
 /* index   offers  */
-div.offers {
+/*div.offers {
     height: auto;
-    border-bottom: 1px solid #e6e6e6;
+    overflow: auto;
+    border: 1px solid #25fc04;
     padding: 0;
     padding-bottom:1px;
+}*/
+#productSummary{
+    padding:0px;
+    text-align: left;
+    display: inline-block;
+    margin-left:4px;
+    float: left;
+    width:220px;
+    height: 130px;      
+    margin-bottom: 2px;
+    border: 1px solid silver;   
+    border-collapse: collapse 
+}
+#summaryText{
+    border-left: 1px solid silver;
+    font-size:10px;
+    width:107px;
+    height:auto;
+    float:right;
+   
+}
+#summaryText h2{
+    font-size:14px;
+    font-weight:600;
+    margin:0 0;
+}
+#summaryImg{
+    float:left;
+    width:110px;
+    height: 130px;
+    border: 1px solid silver ;
+    background-color: silver;
+    text-align:center;
+}
+#summaryImg img{
+     margin-top: 15px;
+     
+}
+
+div.offers {
+    height: auto;
+    overflow: auto;
+    border: 1px solid #25fc04;
+    padding: 0;
+    padding-bottom:1px;
+    border-collapse: collapse;
 }
 ol.offers{
     margin:0 0 0 0;
@@ -123,6 +170,7 @@ div.offers h2{
     margin:10px;
     font-weight:bold;
     font-size: 20px;
+    border: none;
 }
 
 
