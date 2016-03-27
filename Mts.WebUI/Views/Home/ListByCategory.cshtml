@@ -14,7 +14,10 @@
 <body>
     <div class="offers">
         <h2>@Model.First().ProductTypes.Name</h2>
-        @showItem(Model)
+        @foreach(var p in Model)
+        {
+            Html.RenderPartial("ProductSummary", p);
+        }
     </div>
 </body>
 </html>

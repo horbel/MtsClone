@@ -102,7 +102,7 @@ h2 {
     float: left;
     width:220px;
     height: 130px;      
-    margin-bottom: 2px;
+    margin-bottom: 4px;
     border: 1px solid silver;   
     border-collapse: collapse 
 }
@@ -110,7 +110,7 @@ h2 {
     border-left: 1px solid silver;
     font-size:10px;
     width:107px;
-    height:auto;
+    height:130px;
     float:right;
    
 }
@@ -140,32 +140,33 @@ div.offers {
     padding-bottom:1px;
     border-collapse: collapse;
 }
-ol.offers{
-    margin:0 0 0 0;
-    padding:0px;
+/*ol.offers {
+    margin: 0 0 0 0;
+    padding: 0px;
 }
 
-ol.offers li{
-    padding:0px;
-    text-align: center;
-    display: inline-block;
-    margin-left:4px;
-    float: left;
-    width:227px;
-    height: 130px;      
-    margin-bottom: 0px;
-    
-}
-ol.offers li:first-child{
-    margin-left:0px;
-    border-right: 1px solid rgba(118, 108, 108, 0.78);
-    float: left;
-}
-ol.offers li:last-child{
-    margin-right:0px;
-    border-left: 1px solid rgba(118, 108, 108, 0.78);
-    float:right;
-}
+    ol.offers li {
+        padding: 0px;
+        text-align: center;
+        display: inline-block;
+        margin-left: 4px;
+        float: left;
+        width: 227px;
+        height: 130px;
+        margin-bottom: 0px;
+    }
+
+        ol.offers li:first-child {
+            margin-left: 0px;
+            border-right: 1px solid rgba(118, 108, 108, 0.78);
+            float: left;
+        }
+
+        ol.offers li:last-child {
+            margin-right: 0px;
+            border-left: 1px solid rgba(118, 108, 108, 0.78);
+            float: right;
+        }*/
 div.offers h2{
     margin:10px;
     font-weight:bold;
