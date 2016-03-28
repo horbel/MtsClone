@@ -2,8 +2,9 @@
 body {
     background: #e9e3e3;
     color: #000000;
-    font-family: Trebuchet MS, Arial, Times New Roman;
+    font: normal 11px 'TruthCYR_Regular', Arial, sans-serif;
     font-size: 12px;
+        
 }
 
 #container {
@@ -36,10 +37,10 @@ body {
     margin-bottom:5px;
 }
 #news {
-    background: #bf9696;
+    background: #ead19d;
     float: right;
     width: 200px;
-    height: 450px;
+    height: auto;
     margin-bottom: 0px;
 }
 
@@ -78,11 +79,15 @@ h2 {
     text-align-last: justify;
 }
 
+#category_container a{
+    text-decoration:none;
+}
+#category_container a:hover{
+    background-color: #808080
+}
 .category {
     display: inline-block;
     font-size: 12px;
-    font-family: Tahoma;
-    font-weight: bold;
     color: #e9e3e3;
 }
 

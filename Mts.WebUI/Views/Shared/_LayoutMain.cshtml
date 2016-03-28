@@ -9,7 +9,9 @@
 <body>    
     <div id="container">
         <div id="header">
-            <img src="~/Resources/logo.png" width="100" height="50"/> 
+            <a href="@Url.RouteUrl(new {action = "Index", controller="Home" })">
+                <img src="~/Resources/logo.png" width="100" height="50" />
+            </a>
         </div>
 
         <div id="navigation">@{ Html.RenderAction("Menu", "Nav"); }
@@ -19,11 +21,7 @@
             <img width="900" height="290" src="~/Resources/p8  BTSpeaker.jpg"/>
         </div>
 
-        <div id="news">
-            <h2>News</h2>
-        </div>
-
-        <div id="content">            
+        <div>            
             @RenderBody()
         </div>
 

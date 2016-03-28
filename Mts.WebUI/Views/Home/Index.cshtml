@@ -12,20 +12,43 @@
     <title>Index</title>
 </head>
 <body>
-    <div class="offers">
-        <h2>Специальные предложения</h2>
-        @showRandomItems(Model,1)
+    <div id="content">
+        <div class="offers">
+            <h2>Специальные предложения</h2>
+            @showRandomItems(Model, 1)
 
+        </div>
+
+        <div class="offers">
+            <h2>Новинки</h2>
+            @showRandomItems(Model, 2)
+        </div>
+
+        <div class="offers">
+            <h2>Хиты продаж</h2>
+            @showRandomItems(Model, 3)
+        </div>
     </div>
 
-    <div class="offers">
-        <h2>Новинки</h2>
-        @showRandomItems(Model,2)
-    </div>
-
-    <div class="offers">
-        <h2>Хиты продаж</h2>
-        @showRandomItems(Model,3)
+    <div id="news">
+        <h2>Новости и акции</h2>
+        <p>
+        <p>28.03.2016</p>
+        В МТС начались продажи двух новых 4G-смартфонов Huawei – G8 и GR5
+        В салонах и интернет-магазине МТС появились две свежие модели от бренда Huawei – G8 и GR5.
+        </p>
+        <hr />
+        <p>
+        <p>24.03.2016</p>
+        МТС снизил цены на 4G-смартфоны Lenovo
+        МТС снизил цены на 4G-смартфоны Lenovo – бюджетный A2010 и долгоиграющий P70-A
+        </p>
+        <hr />
+        <p>
+        <p>18.03.2016</p>
+        В МТС стартовали официальные продажи новых флагманских смартфонов Samsung
+        МТС объявил о начале официальных продаж долгожданных новинок от компании Samsung – флагманских моделей Galaxy S7 и Galaxy S7 edge. В рамках акции «Все включено» оба смартфона можно приобрести в беспроцентную рассрочку на год
+        </p>
     </div>
 </body>
 </html>
