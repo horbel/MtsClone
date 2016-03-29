@@ -5,7 +5,7 @@
     {
         @Html.RouteLink(category,
     new { controller = "Home", action = "ListByCategory", category = category },
-    new { @class = "category" });  
+    new { @class = category == ViewBag.SelectedCategory ? "selected" : null });  
         @*<div class="category">@category</div>*@
         //SELECTEDCATEGORY DOBAVIT!!!!!!!!!!!
     }

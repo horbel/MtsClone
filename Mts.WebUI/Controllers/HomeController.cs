@@ -23,12 +23,7 @@ namespace Mts.WebUI.Controllers
 
         public ViewResult ListByCategory(string category = null)
         {
-            ProductsListViewModel viewModel = new ProductsListViewModel
-            {
-                Products = repository.Products,
-                CurrentCategory = category
-            };
-            ViewBag.SelectedCategory = viewModel.CurrentCategory;
+            
             if (category != null)
             {
                 return View(repository.Products.Where(x => x.ProductTypes.Name == category).ToList<Products>());

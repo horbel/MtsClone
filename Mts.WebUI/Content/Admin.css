@@ -1,0 +1,21 @@
+﻿body {
+    background-color: #bdf1e9;
+    font-family: Segoe UI, Verdana;
+    font-size:16px;
+    
+}
+#products-table{
+    margin-left:auto;
+    margin-right:auto;    
+    
+    
+}
+#products-table th {
+    border-bottom: solid 2px black;
+    text-align:center;
+    padding:2px;    
+}
+
+#products-table td{
+    padding-left:20px
+}
