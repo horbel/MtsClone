@@ -6,57 +6,17 @@
 }
 
 <h2>Index</h2>
+<script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"
+        type="text/javascript"></script>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table id="products-table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model=>model.ID)
-        </th>
-        <th>
-            Type
-        </th>
-        <th>
-            Brand
-        </th>
-        <th>
-            Model           
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        
-        <th>
-            Actions
-        </th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem=>item.ID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductTypes.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Brands.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ModelName)            
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+@using (Ajax.BeginForm("List", new {table="products"}, new AjaxOptions {UpdateTargetId = "results" }))
+{
+    <input type="submit" value="Products">
 }
 
-</table>
+<div id="results">
+
+</div>
+

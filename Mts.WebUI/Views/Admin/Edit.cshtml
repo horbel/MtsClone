@@ -1,0 +1,11 @@
+﻿@model Mts.Domain.Products
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@Html.EditorForModel();
+@Html.HiddenFor(x=>x.ID)

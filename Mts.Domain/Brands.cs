@@ -6,6 +6,8 @@
 //     Изменения, вносимые в этот файл вручную, будут перезаписаны при повторном создании кода.
 // </auto-generated>
 //------------------------------------------------------------------------------
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace Mts.Domain
 {
@@ -21,6 +23,7 @@ namespace Mts.Domain
         }
     
         public int ID { get; set; }
+        [Display(Name = "Brand")]
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

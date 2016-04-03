@@ -33,5 +33,22 @@ namespace Mts.Domain.Concrete
                 return context.ProductTypes;
             }
         }
+
+        public void SaveProduct(Products product)
+        {
+            if(product.ID==0)
+            {
+                context.Products.Add(product);
+            }
+            else
+            {
+                Products dbProduct = context.Products.Find(new { ID = product.ID });
+                if(dbProduct !=null)
+                {
+                    /////////////////////////!!!!!!!OK!!!!!!!!!////////////////
+                }
+            }
+            context.SaveChanges();
+        }
     }
 }

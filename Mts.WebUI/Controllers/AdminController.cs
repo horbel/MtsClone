@@ -19,5 +19,35 @@ namespace Mts.WebUI.Controllers
         {
             return View(repository.Products);
         }
+
+        [HttpPost]
+        public PartialViewResult List(string table)
+        {
+            switch (table)
+            {
+                case "products":
+                    return PartialView("ListOfProducts", repository.Products.ToList());
+
+                case "brands":
+                    return PartialView(repository.Brands.ToList());
+
+                case "types":
+                    return PartialView(repository.ProductTypes.ToList());
+                default:
+                    throw new HttpException(404, "there is no table with that name");
+            }
+
+        }
+
+        public ActionResult Edit(int? id, string table)
+        {
+            if(table=="products")
+            {
+                Products product = repository.Products.FirstOrDefault(p => p.ID == id);
+                return View(product);
+            }
+            else
+                throw new HttpException(404, "no table");
+        }
     }
 }

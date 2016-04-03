@@ -6,7 +6,8 @@
 //     Изменения, вносимые в этот файл вручную, будут перезаписаны при повторном создании кода.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 namespace Mts.Domain
 {
     using System;
@@ -18,6 +19,7 @@ namespace Mts.Domain
         public Nullable<int> TypeID { get; set; }
         public Nullable<int> BrandID { get; set; }
         public decimal Price { get; set; }
+        [Display(Name ="Model")]
         public string ModelName { get; set; }
         public string Description { get; set; }
     
