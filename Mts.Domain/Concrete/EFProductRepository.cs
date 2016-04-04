@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web;
 using System.Threading.Tasks;
 using Mts.Domain.Abstract;
 using System.Data.Entity.Validation;
@@ -36,46 +37,39 @@ namespace Mts.Domain.Concrete
             }
         }
 
-        public void SaveProduct(object entity)
+        public void Save(Products product)
         {
-            if (entity is Products)
+            if (product.ID == 0)
             {
-                Products prod = entity as Products;
-                if (prod.ID == 0)
+                context.Products.Add(product);
+            }
+            else
+            {
+                Products dbEntry = context.Products.Find(product.ID);
+                if (dbEntry != null)
                 {
-                    context.Products.Add(prod);
-                }
-                else
-                {
-                    Products dbProduct = context.Products.Find(prod.ID);
-                    if (dbProduct != null)
-                    {
-                        dbProduct.ModelName = prod.ModelName;
-                        dbProduct.Price = prod.Price;
-                        dbProduct.Description = prod.Description;
-                        dbProduct.TypeID = prod.TypeID;
-                        dbProduct.BrandID = prod.BrandID;
-                    }
+                    context.Entry(dbEntry).CurrentValues.SetValues(product);
                 }
             }
-            try
-            {
-                context.SaveChanges();
-            }
-            catch (DbEntityValidationException dbEx)
-            {
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        Trace.TraceInformation(
-                              "Class: {0}, Property: {1}, Error: {2}",
-                              validationErrors.Entry.Entity.GetType().FullName,
-                              validationError.PropertyName,
-                              validationError.ErrorMessage);
-                    }
-                }
-            }
+            context.SaveChanges();
         }
+        public void Save(Brands brand)
+        {
+            if (brand.ID == 0)
+            {
+                context.Brands.Add(brand);
+            }
+            else
+            {
+                Brands dbEntry = context.Brands.Find(brand.ID);
+                if (dbEntry != null)
+                {
+                    context.Entry(dbEntry).CurrentValues.SetValues(brand);
+                }
+            }
+            context.SaveChanges();
+        }
+
     }
 }
+

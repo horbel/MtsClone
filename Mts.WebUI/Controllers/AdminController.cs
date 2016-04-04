@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Mts.Domain;
 using Mts.Domain.Abstract;
+using System.Data.Entity.Validation;
 
 namespace Mts.WebUI.Controllers
 {
@@ -48,6 +49,7 @@ namespace Mts.WebUI.Controllers
                     {                        
                         ViewBag.Brand = new SelectList(repository.Brands, "ID", "Name");
                         ViewBag.Type = new SelectList(repository.ProductTypes, "ID", "Name");
+                        
                         Products product = repository.Products.FirstOrDefault(p => p.ID == id);
                         return View("EditProduct", product);
                     }
@@ -68,12 +70,59 @@ namespace Mts.WebUI.Controllers
             
         }
         [HttpPost]
-        public ActionResult Edit(Products entity)
+        public ActionResult Edit(Products entity, string typeId, string brandId)
         {
             if(ModelState.IsValid)
             {
+                TempData["1"] = typeId;
+                TempData["2"] = brandId;
                 TempData["message"] = "Entity has been saved";
-                repository.SaveProduct(entity);
+                try
+                {
+                    repository.Save(entity);
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (DbEntityValidationResult validationError in ex.EntityValidationErrors)
+                    {
+                        TempData["error"] += "Object: " + validationError.Entry.Entity.ToString();
+                        
+
+                        foreach (DbValidationError err in validationError.ValidationErrors)
+                        {
+                            TempData["error2"] += err.ErrorMessage;
+                        }
+                    }
+                }
+                return RedirectToAction("Index");
+            }
+            else
+                throw new HttpException(404, "model state is not valid");
+        }
+
+        [HttpPost]
+        public ActionResult EditBrand(Brands entity)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["message"] = "Entity has been saved";
+                try
+                {
+                    repository.Save(entity);
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (DbEntityValidationResult validationError in ex.EntityValidationErrors)
+                    {
+                        TempData["error"] += "Object: " + validationError.Entry.Entity.ToString();
+                        
+
+                        foreach (DbValidationError err in validationError.ValidationErrors)
+                        {
+                            TempData["error2"] += err.ErrorMessage;
+                        }
+                    }
+                }
                 return RedirectToAction("Index");
             }
             else

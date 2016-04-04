@@ -12,7 +12,7 @@ namespace Mts.Domain
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
     public partial class Products
     {
         [HiddenInput(DisplayValue = false)]
@@ -28,7 +28,7 @@ namespace Mts.Domain
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
     
-        public virtual Brands Brands { get; set; }
+        public virtual Brands Brands { get; set; }       
         public virtual ProductTypes ProductTypes { get; set; }
     }
 }

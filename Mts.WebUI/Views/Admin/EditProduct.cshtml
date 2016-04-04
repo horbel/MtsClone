@@ -8,24 +8,25 @@
 <h2>Edit</h2>
 
 <div class="editor">
-    <div class="editor-label">
-        <label>Category</label>
-    </div>
-    <div class="editor-field">
-        @Html.DropDownList("Type", Model.ProductTypes.Name )
-    </div>
-
-    <div class="editor-label">
-        <label>Brand</label>
-    </div>
-    <div class="editor-field">
-        @Html.DropDownList("Brand", Model.Brands.Name)
-    </div>
-
-    @Html.EditorForModel()
+  
 
     @using (Html.BeginForm())
     {
+        <div class="editor-label">
+            <label>Category</label>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Type", Model.ProductTypes.Name)
+        </div>
+
+        <div class="editor-label">
+            <label>Brand</label>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Brand", Model.Brands.Name)
+        </div>
+
+        @Html.EditorForModel()
         <input type="submit" value="Save" />        
     }
     @Html.ActionLink("Cancel and return to List", "Index")

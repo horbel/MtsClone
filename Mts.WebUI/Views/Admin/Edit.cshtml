@@ -5,10 +5,11 @@
 
 <h2>Edit</h2>
 <div class="editor">
-    @Html.EditorForModel()
+    
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("EditBrand", "admin"))
     {
+        @Html.EditorForModel()
         <input type="submit" value="Save" />        
     }
     @Html.ActionLink("Cancel and return to List", "Index")
