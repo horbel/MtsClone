@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Mts.Domain.Abstract;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 
 namespace Mts.Domain.Concrete
 {
@@ -34,21 +36,46 @@ namespace Mts.Domain.Concrete
             }
         }
 
-        public void SaveProduct(Products product)
+        public void SaveProduct(object entity)
         {
-            if(product.ID==0)
+            if (entity is Products)
             {
-                context.Products.Add(product);
-            }
-            else
-            {
-                Products dbProduct = context.Products.Find(new { ID = product.ID });
-                if(dbProduct !=null)
+                Products prod = entity as Products;
+                if (prod.ID == 0)
                 {
-                    /////////////////////////!!!!!!!OK!!!!!!!!!////////////////
+                    context.Products.Add(prod);
+                }
+                else
+                {
+                    Products dbProduct = context.Products.Find(prod.ID);
+                    if (dbProduct != null)
+                    {
+                        dbProduct.ModelName = prod.ModelName;
+                        dbProduct.Price = prod.Price;
+                        dbProduct.Description = prod.Description;
+                        dbProduct.TypeID = prod.TypeID;
+                        dbProduct.BrandID = prod.BrandID;
+                    }
                 }
             }
-            context.SaveChanges();
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation(
+                              "Class: {0}, Property: {1}, Error: {2}",
+                              validationErrors.Entry.Entity.GetType().FullName,
+                              validationError.PropertyName,
+                              validationError.ErrorMessage);
+                    }
+                }
+            }
         }
     }
 }

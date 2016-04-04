@@ -21,7 +21,7 @@ namespace Mts.Domain
         {
             this.Products = new HashSet<Products>();
         }
-    
+        [HiddenInput(DisplayValue = false)]
         public int ID { get; set; }
         [Display(Name ="Category")]
         public string Name { get; set; }

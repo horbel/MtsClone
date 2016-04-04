@@ -10,12 +10,20 @@
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"
         type="text/javascript"></script>
 
-
-@using (Ajax.BeginForm("List", new {table="products"}, new AjaxOptions {UpdateTargetId = "results" }))
-{
-    <input type="submit" value="Products">
-}
-
+<div id="buttons_area">
+    @using (Ajax.BeginForm("List", new { table = "products" }, new AjaxOptions { UpdateTargetId = "results" }))
+    {
+        <input type="submit" value="Products">
+    }
+    @using (Ajax.BeginForm("List", new { table = "brands" }, new AjaxOptions { UpdateTargetId = "results" }))
+    {
+        <input type="submit" value="Brands">
+    }
+    @using (Ajax.BeginForm("List", new { table = "types" }, new AjaxOptions { UpdateTargetId = "results" }))
+    {
+        <input type="submit" value="Categories">
+    }
+</div>
 <div id="results">
 
 </div>

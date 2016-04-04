@@ -4,18 +4,57 @@
     font-size:16px;
     
 }
-#buttons_area{
-    display:inline-block;    
-}
-.grid{
+/*#buttons_area{
+    padding-left:3px;
+    padding-right:3px;
+    width:400px;
     margin-left:auto;
     margin-right:auto;
+    border: 1px solid 
+}*/
+#buttons_area{
+    text-align:center;
+}
+form{
+    display:inline-block;  
+    margin-left:auto;
+    margin-right:auto;    
     
+}
+form input{
+    font-size:18px;
+    margin-left:10px;
+}
+.grid{
+    margin-top:20px;
+    margin-left:auto;
+    margin-right:auto;    
 }
 .grid th{
     border-bottom: 1px solid black;    
 }
 .grid td{
     padding-left:30px;
-    
+    border-bottom: dotted 1px silver;
+}
+.editor{
+    margin-top:170px;
+    border:1px solid black;
+    margin-left:auto;
+    margin-right:auto;
+    width:50%;
+}
+.editor-label{
+    font-size:20px;
+    font-weight:bold;
+    margin-top:15px;
+}
+.editor form input{
+    margin:10px 0 0 0;
+}
+.editor a{
+    margin:70px;
+}
+.editor-field{
+  
 }

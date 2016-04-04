@@ -12,6 +12,6 @@ namespace Mts.Domain.Abstract
         IQueryable<Products> Products { get;}
         IQueryable<ProductTypes> ProductTypes { get;}//?
 
-        void SaveProduct(Products product);
+        void SaveProduct(object product);
     }
 }

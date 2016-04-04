@@ -1,24 +1,26 @@
 ﻿@model IEnumerable<Mts.Domain.Products>
 @{ 
-    var first = Model.FirstOrDefault();
+    var first = Model.FirstOrDefault();    
 }
 <table class="grid">
     <thead>
-        <tr>
+        <tr>            
             <th>@Html.LabelFor(x=>first.ProductTypes.Name)</th>
             <th>@Html.LabelFor(x=>first.Brands.Name)</th>
             <th>@Html.LabelFor(x => first.ModelName)</th>
             <th>@Html.LabelFor(x => first.Price)</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach(var item in Model)
+        @foreach (var item in Model)
         {
-            <tr>
+            <tr>               
                 <td>@item.ProductTypes.Name</td>
                 <td>@item.Brands.Name</td>
                 <td>@item.ModelName</td>
-                <td>@item.Price.ToString("c")</td>                         
+                <td>@item.Price.ToString("c")</td>      
+                <td>@Html.RouteLink("Edit", new { controller = "admin", action = "Edit", id = item.ID, table = "products" })</td>                     
             </tr>
         }       
         

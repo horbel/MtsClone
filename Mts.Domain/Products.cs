@@ -15,12 +15,17 @@ namespace Mts.Domain
     
     public partial class Products
     {
+        [HiddenInput(DisplayValue = false)]
         public int ID { get; set; }
+        [HiddenInput(DisplayValue = false)]
         public Nullable<int> TypeID { get; set; }
+        [HiddenInput(DisplayValue = false)]
         public Nullable<int> BrandID { get; set; }
+        [DataType(DataType.Currency)]
         public decimal Price { get; set; }
         [Display(Name ="Model")]
         public string ModelName { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
     
         public virtual Brands Brands { get; set; }

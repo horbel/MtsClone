@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Mts.Domain.Brands>
+@{
+    var first = Model.FirstOrDefault();   
+}
+<table class="grid">
+    <thead>
+        <tr>            
+            <th>@Html.LabelFor(x => first.Name)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>                
+                <td>@item.Name</td>       
+                <td>@Html.RouteLink("Edit", new {controller="admin", action="Edit", id=item.ID, table="brands" })</td>         
+            </tr>
+        }
+
+    </tbody>
+</table>

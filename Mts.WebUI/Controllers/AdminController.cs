@@ -29,25 +29,55 @@ namespace Mts.WebUI.Controllers
                     return PartialView("ListOfProducts", repository.Products.ToList());
 
                 case "brands":
-                    return PartialView(repository.Brands.ToList());
+                    return PartialView("ListOfBrands",repository.Brands.ToList());
 
                 case "types":
-                    return PartialView(repository.ProductTypes.ToList());
+                    return PartialView("ListOfTypes", repository.ProductTypes.ToList());
                 default:
                     throw new HttpException(404, "there is no table with that name");
             }
 
         }
 
-        public ActionResult Edit(int? id, string table)
-        {
-            if(table=="products")
+        public ViewResult Edit(int? id, string table)
+        {            
+            
+            switch(table)
             {
-                Products product = repository.Products.FirstOrDefault(p => p.ID == id);
-                return View(product);
+                case "products":
+                    {                        
+                        ViewBag.Brand = new SelectList(repository.Brands, "ID", "Name");
+                        ViewBag.Type = new SelectList(repository.ProductTypes, "ID", "Name");
+                        Products product = repository.Products.FirstOrDefault(p => p.ID == id);
+                        return View("EditProduct", product);
+                    }
+                case "brands":
+                    {
+                        Brands brand = repository.Brands.FirstOrDefault(b => b.ID == id);
+                        return View(brand);
+                    }
+                case "types":
+
+                    {
+                        ProductTypes type = repository.ProductTypes.FirstOrDefault(t => t.ID == id);
+                        return View(type);
+                    }
+                default:
+                    throw new HttpException(404, "no table");
+            }
+            
+        }
+        [HttpPost]
+        public ActionResult Edit(Products entity)
+        {
+            if(ModelState.IsValid)
+            {
+                TempData["message"] = "Entity has been saved";
+                repository.SaveProduct(entity);
+                return RedirectToAction("Index");
             }
             else
-                throw new HttpException(404, "no table");
+                throw new HttpException(404, "model state is not valid");
         }
     }
 }
