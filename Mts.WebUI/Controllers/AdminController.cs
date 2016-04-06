@@ -48,21 +48,20 @@ namespace Mts.WebUI.Controllers
                 case "products":
                     {                        
                         ViewBag.Brand = new SelectList(repository.Brands, "ID", "Name");
-                        ViewBag.Type = new SelectList(repository.ProductTypes, "ID", "Name");
-                        
+                        ViewBag.Type = new SelectList(repository.ProductTypes, "ID", "Name");                        
                         Products product = repository.Products.FirstOrDefault(p => p.ID == id);
                         return View("EditProduct", product);
                     }
                 case "brands":
                     {
                         Brands brand = repository.Brands.FirstOrDefault(b => b.ID == id);
-                        return View(brand);
+                        return View("EditBrand", brand);
                     }
                 case "types":
 
                     {
                         ProductTypes type = repository.ProductTypes.FirstOrDefault(t => t.ID == id);
-                        return View(type);
+                        return View("EditType", type);
                     }
                 default:
                     throw new HttpException(404, "no table");
@@ -70,16 +69,15 @@ namespace Mts.WebUI.Controllers
             
         }
         [HttpPost]
-        public ActionResult Edit(Products entity, string typeId, string brandId)
+        public ActionResult EditProduct(Products entity)
         {
             if(ModelState.IsValid)
             {
-                TempData["1"] = typeId;
-                TempData["2"] = brandId;
-                TempData["message"] = "Entity has been saved";
+                
                 try
                 {
                     repository.Save(entity);
+                    TempData["message"] = "Entity has been saved";
                 }
                 catch (DbEntityValidationException ex)
                 {
@@ -116,6 +114,35 @@ namespace Mts.WebUI.Controllers
                     {
                         TempData["error"] += "Object: " + validationError.Entry.Entity.ToString();
                         
+
+                        foreach (DbValidationError err in validationError.ValidationErrors)
+                        {
+                            TempData["error2"] += err.ErrorMessage;
+                        }
+                    }
+                }
+                return RedirectToAction("Index");
+            }
+            else
+                throw new HttpException(404, "model state is not valid");
+        }
+
+        [HttpPost]
+        public ActionResult EditType(ProductTypes entity)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["message"] = "Entity has been saved";
+                try
+                {
+                    repository.Save(entity);
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (DbEntityValidationResult validationError in ex.EntityValidationErrors)
+                    {
+                        TempData["error"] += "Object: " + validationError.Entry.Entity.ToString();
+
 
                         foreach (DbValidationError err in validationError.ValidationErrors)
                         {

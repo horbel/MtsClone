@@ -6,12 +6,12 @@
 }
 
 <h2>Index</h2>
-@TempData["error"]
-<p></p>
-@TempData["error2"]
+<div id="errors">
+    <p>@TempData["error"]</p>
+    <p>@TempData["error2"]</p>
+    <p>@TempData["message"]</p>
+</div>
 
-<p>@TempData["1"] </p>
-<p>@TempData["2"] </p>
 
 <script src="~/Scripts/jquery-1.10.2.min.js" type="text/javascript"></script>
 <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"

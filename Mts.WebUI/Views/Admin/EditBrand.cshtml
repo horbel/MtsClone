@@ -1,0 +1,18 @@
+﻿@model Mts.Domain.Brands
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Edit</h2>
+<div class="editor">
+    
+    @using (Html.BeginForm("EditBrand", "admin"))
+    {
+        @Html.EditorForModel()
+        <input type="submit" value="Save" />        
+    }
+    @Html.ActionLink("Cancel and return to List", "Index")
+
+</div>
+

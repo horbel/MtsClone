@@ -14,5 +14,6 @@ namespace Mts.Domain.Abstract
 
         void Save(Products product);
         void Save(Brands brand);
+        void Save(ProductTypes type);
     }
 }

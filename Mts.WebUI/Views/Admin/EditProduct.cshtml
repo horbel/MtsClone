@@ -10,20 +10,22 @@
 <div class="editor">
   
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm(new {action = "EditProduct", controller="admin" }))
     {
         <div class="editor-label">
             <label>Category</label>
         </div>
         <div class="editor-field">
-            @Html.DropDownList("Type", Model.ProductTypes.Name)
+            @*@Html.DropDownList("Type", Model.ProductTypes.Name)*@
+            @Html.DropDownListFor(x => x.TypeID, (SelectList)ViewBag.Type)
         </div>
 
         <div class="editor-label">
             <label>Brand</label>
         </div>
         <div class="editor-field">
-            @Html.DropDownList("Brand", Model.Brands.Name)
+            @*@Html.DropDownList("Brand", Model.Brands.Name)*@
+            @Html.DropDownListFor(x=>x.BrandID, (SelectList)ViewBag.Brand)
         </div>
 
         @Html.EditorForModel()

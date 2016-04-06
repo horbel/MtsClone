@@ -69,6 +69,22 @@ namespace Mts.Domain.Concrete
             }
             context.SaveChanges();
         }
+        public void Save(ProductTypes type)
+        {
+            if (type.ID == 0)
+            {
+                context.ProductTypes.Add(type);
+            }
+            else
+            {
+                ProductTypes dbEntry = context.ProductTypes.Find(type.ID);
+                if (dbEntry != null)
+                {
+                    context.Entry(dbEntry).CurrentValues.SetValues(type);
+                }
+            }
+            context.SaveChanges();
+        }
 
     }
 }

@@ -1,16 +1,16 @@
-﻿@{
-    ViewBag.Title = "Edit";
+﻿@model Mts.Domain.ProductTypes
+
+@{
+    ViewBag.Title = "EditType";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Edit</h2>
 <div class="editor">
-    
 
-    @using (Html.BeginForm("EditBrand", "admin"))
+    @using (Html.BeginForm("EditType", "admin"))
     {
         @Html.EditorForModel()
-        <input type="submit" value="Save" />        
+        <input type="submit" value="Save" />
     }
     @Html.ActionLink("Cancel and return to List", "Index")
 
