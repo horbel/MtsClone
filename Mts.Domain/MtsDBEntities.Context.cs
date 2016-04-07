@@ -28,5 +28,6 @@ namespace Mts.Domain
         public virtual DbSet<Brands> Brands { get; set; }
         public virtual DbSet<Products> Products { get; set; }
         public virtual DbSet<ProductTypes> ProductTypes { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

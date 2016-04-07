@@ -6,7 +6,6 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Country2" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Products">
     <Key>
@@ -18,6 +17,7 @@
     <Property Name="Price" Type="decimal" Precision="9" Scale="2" Nullable="false" />
     <Property Name="ModelName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ProductImageLocation" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="ProductTypes">
     <Key>

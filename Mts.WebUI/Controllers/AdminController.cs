@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using Mts.Domain;
 using Mts.Domain.Abstract;
 using System.Data.Entity.Validation;
+using System.IO;
+
 
 namespace Mts.WebUI.Controllers
 {
@@ -38,6 +40,19 @@ namespace Mts.WebUI.Controllers
                     throw new HttpException(404, "there is no table with that name");
             }
 
+        }
+
+        [HttpPost]
+        public string UploadImage(HttpPostedFileBase file)
+        {
+            if(file!=null && file.ContentLength>0)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/App_Data/ProductImages"), fileName);
+                file.SaveAs(path);
+                return "success";
+            }
+            return "xyes";
         }
 
         public ViewResult Edit(int? id, string table)

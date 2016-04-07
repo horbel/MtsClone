@@ -31,5 +31,11 @@
         @Html.EditorForModel()
         <input type="submit" value="Save" />        
     }
+
+    @using (Html.BeginForm("UploadImage", "Admin", FormMethod.Post, new {enctype="multipart/form-data"}))
+    {
+        <input type="file" name="file"/>
+        <input type="submit" value="Ok"/>
+    }
     @Html.ActionLink("Cancel and return to List", "Index")
 </div>

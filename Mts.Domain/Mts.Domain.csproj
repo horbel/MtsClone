@@ -81,60 +81,63 @@
   <ItemGroup>
     <Compile Include="Abstract\IProductRepository.cs" />
     <Compile Include="Brands.cs">
-      <DependentUpon>ProductsDbModel.tt</DependentUpon>
+      <DependentUpon>MtsDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Concrete\EFProductRepository.cs" />
+    <Compile Include="MtsDBEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MtsDBEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MtsDBEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MtsDBEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MtsDBEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MtsDBEntities.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Products.cs">
-      <DependentUpon>ProductsDbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductsDbModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductsDbModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductsDbModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductsDbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProductsDbModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ProductsDbModel.edmx</DependentUpon>
+      <DependentUpon>MtsDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductTypes.cs">
-      <DependentUpon>ProductsDbModel.tt</DependentUpon>
+      <DependentUpon>MtsDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>MtsDBEntities.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <None Include="packages.config" />
-    <EntityDeploy Include="ProductsDbModel.edmx">
+    <EntityDeploy Include="MtsDBEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ProductsDbModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>MtsDBEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ProductsDbModel.edmx.diagram">
-      <DependentUpon>ProductsDbModel.edmx</DependentUpon>
+    <None Include="MtsDBEntities.edmx.diagram">
+      <DependentUpon>MtsDBEntities.edmx</DependentUpon>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ProductsDbModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ProductsDbModel.edmx</DependentUpon>
-      <LastGenOutput>ProductsDbModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ProductsDbModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ProductsDbModel.edmx</DependentUpon>
-      <LastGenOutput>ProductsDbModel.cs</LastGenOutput>
-    </Content>
+    <Folder Include="Entities\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\" />
+    <Content Include="MtsDBEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MtsDBEntities.edmx</DependentUpon>
+      <LastGenOutput>MtsDBEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MtsDBEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MtsDBEntities.edmx</DependentUpon>
+      <LastGenOutput>MtsDBEntities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
