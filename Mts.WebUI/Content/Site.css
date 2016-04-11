@@ -64,6 +64,40 @@ body {
     height: 80px;
     width: 900px;
     margin-top: 5px;
+    display:inline-block;
+    border-collapse:collapse;
+}
+#footer a{
+    text-decoration:none;
+    font-size:14px;
+    color: #cacdd5;
+}
+#footer a:hover{
+    background-color:red;
+}
+#FooterLinks{
+    height:100%;
+    width:15%;
+    text-align:justify;
+    float: left;    
+}
+#FooterInfo{
+    height:90%;
+    width:38%;
+    float:right;
+}
+#FooterInfo p{
+    margin-top:5px;
+    margin-bottom:5px;
+}
+#FooterAddress{
+    height:100%;
+    width:38%;
+    margin:0;
+    float:left;
+}
+#FooterAddress p{
+    text-align:left;
 }
 
 h2 {
@@ -89,8 +123,7 @@ h2 {
     background-color: #808080
 }
 #category_container a.selected{
-    background-color: #ea0707;
-    color: red;
+    background-color: red;    
 }
 
 /* index   offers  */
@@ -113,7 +146,7 @@ h2 {
     border: 1px solid silver;   
     border-collapse: collapse 
 }
-#summaryText{
+#summaryText{    
     border-left: 1px solid silver;
     font-size:10px;
     width:107px;
@@ -132,7 +165,7 @@ h2 {
     height: 130px;
     border: 1px solid silver ;
     background-color: silver;
-    text-align:center;
+    text-align:left;
 }
 #summaryImg img{
      margin-top: 15px;
@@ -180,5 +213,4 @@ div.offers h2{
     font-size: 20px;
     border: none;
 }
-
 

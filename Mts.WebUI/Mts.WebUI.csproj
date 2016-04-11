@@ -193,6 +193,7 @@
     <Content Include="Views\Shared\ListOfTypes.cshtml" />
     <Content Include="Views\Admin\EditProduct.cshtml" />
     <Content Include="Views\Admin\EditType.cshtml" />
+    <Content Include="Views\Shared\FooterPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -202,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Resources\ProductImages\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mts.Domain\Mts.Domain.csproj">

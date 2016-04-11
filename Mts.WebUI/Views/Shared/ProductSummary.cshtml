@@ -1,7 +1,17 @@
 ﻿@model Mts.Domain.Products
 <div id="productSummary">
     <div id="summaryImg">
-        <img width="50", height="100" src="http://shop.mts.by/upload/resize_cache/iblock/7ff/90_180_1/galaxy-s7_gallery_front_silver.png" />
+        @{
+            if (Model.ProductImageLocation != null)
+            {
+                <img width="110" , height="115" src="@Url.Content(Model.ProductImageLocation)" />
+            }
+            else
+            {
+                <img width="110" , height="115" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" />
+            }
+        }
+        
     </div>
     <div id="summaryText">
         <h2>@Model.Brands.Name</h2>

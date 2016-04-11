@@ -85,6 +85,38 @@ namespace Mts.Domain.Concrete
             }
             context.SaveChanges();
         }
+        public void SaveImage(string path, int? productId)
+        {
+            if(path!=null && productId!=null)
+            {
+                Products dbEntry = context.Products.Find(productId);
+                if(dbEntry != null)
+                {
+                    dbEntry.ProductImageLocation = path;
+                }
+            }
+            context.SaveChanges();
+        }
+        public void DeleteEntity(object entity)
+        {
+            string type = entity.GetType().ToString();
+            
+            switch (type)
+            {
+                case "Products":
+                    context.Products.Remove(context.Products.Find((entity as Products).ID));
+                    break;
+                case "Brands":
+                    context.Brands.Remove(context.Brands.Find((entity as Brands).ID));
+                    break;
+                case "ProductTypes":
+                    context.ProductTypes.Remove(context.ProductTypes.Find((entity as ProductTypes).ID));
+                    break;
+                default:
+                    break;
+            }
+            context.SaveChanges();
+        }
 
     }
 }

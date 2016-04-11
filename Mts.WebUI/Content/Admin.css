@@ -38,11 +38,10 @@ form input{
     border-bottom: dotted 1px silver;
 }
 .editor{
-    margin-top:170px;
+    margin-top:30px;
     border:1px solid black;
-    margin-left:auto;
-    margin-right:auto;
-    width:50%;
+    float: left;
+    width:30%;
 }
 .editor-label{
     font-size:20px;
@@ -55,6 +54,24 @@ form input{
 .editor-field{
   clear:both;
 }
-.editor a{
+
+#ProductImage{
+    float:left;
+    margin-top:30px;
+    width: 30%;
+}
+#ProductImage form{
+    float:left;
+}
+#ProductImage form input{
+    margin:0;
     
+}
+div .empty{
+    width:100%;
+    height:0px;
+    clear:both;
+}
+#returnLink{
+    float: left;    
 }

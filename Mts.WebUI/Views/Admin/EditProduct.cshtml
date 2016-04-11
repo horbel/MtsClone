@@ -7,8 +7,8 @@
 
 <h2>Edit</h2>
 
-<div class="editor">
-  
+
+<div class="editor">  
 
     @using (Html.BeginForm(new {action = "EditProduct", controller="admin" }))
     {
@@ -32,10 +32,36 @@
         <input type="submit" value="Save" />        
     }
 
-    @using (Html.BeginForm("UploadImage", "Admin", FormMethod.Post, new {enctype="multipart/form-data"}))
-    {
-        <input type="file" name="file"/>
-        <input type="submit" value="Ok"/>
+</div>
+
+<div id="ProductImage">
+    @{
+        if (Model.ProductImageLocation != null)
+        {
+            <img width="200" height="300" src="@Url.Content(@Model.ProductImageLocation)" />
+        }
+           
+        else
+        {
+            @:<img width="200" height="300" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" />
+        }
     }
-    @Html.ActionLink("Cancel and return to List", "Index")
+    
+
+    @using (Html.BeginForm("UploadImage", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input type="file" name="file" />
+        <input type="hidden" value="@Model.ID" name="id" />
+        <input type="submit" value="Ok" />
+    }
+
+    <div id="UploadInfo">
+        @TempData["UploadImage"]
+    </div>
+
+</div>
+<div class="empty">
+</div>
+<div id="returnLink">
+    @Html.ActionLink("Cancel and return to List", "Index", "admin")
 </div>

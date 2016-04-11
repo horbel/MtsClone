@@ -11,7 +11,7 @@ namespace Mts.Domain
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
     public partial class ProductTypes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +19,8 @@ namespace Mts.Domain
         {
             this.Products = new HashSet<Products>();
         }
-    
+
+        [HiddenInput(DisplayValue = false)]
         public int ID { get; set; }
         public string Name { get; set; }
     

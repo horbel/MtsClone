@@ -43,16 +43,23 @@ namespace Mts.WebUI.Controllers
         }
 
         [HttpPost]
-        public string UploadImage(HttpPostedFileBase file)
+        public ActionResult UploadImage(HttpPostedFileBase file, int? id)
         {
             if(file!=null && file.ContentLength>0)
             {
                 var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/App_Data/ProductImages"), fileName);
+                var path = Path.Combine(Server.MapPath("~/Resources/ProductImages"), fileName);                
                 file.SaveAs(path);
-                return "success";
+                path = ("~/Resources/ProductImages/" + fileName).Replace(" ", string.Empty);
+                repository.SaveImage(path, id);
+                TempData["UploadImage"] = "Image has been saved";
             }
-            return "xyes";
+        
+            else
+            {
+                TempData["UploadImage"] = "Image hasn't been saved";
+            }
+            return RedirectToRoute(new { controller = "admin", action = "Edit", id = id, table = "products" });
         }
 
         public ViewResult Edit(int? id, string table)
@@ -169,6 +176,13 @@ namespace Mts.WebUI.Controllers
             }
             else
                 throw new HttpException(404, "model state is not valid");
+        }
+
+        [HttpPost]
+        public ActionResult Delete(object entity)
+        {
+            repository.DeleteEntity(entity);
+            return RedirectToAction("Index");
         }
     }
 }
