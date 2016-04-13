@@ -16,9 +16,8 @@
                 <td>@item.Name</td>
                 <td>@Html.RouteLink("Edit", new { controller = "admin", action = "Edit", id = item.ID, table = "types" })</td>
                 <td>
-                    @using (Html.BeginForm("Delete", "Admin"))
+                    @using (Html.BeginForm(new { action = "Delete", controller = "admin", id = item.ID, table = "types" }))
                     {
-                        @Html.Hidden(item.ID.ToString())
                         <input type="submit" value="Delete" />
                     }
                 </td>

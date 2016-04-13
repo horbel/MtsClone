@@ -16,6 +16,6 @@ namespace Mts.Domain.Abstract
         void Save(Brands brand);
         void Save(ProductTypes type);
         void SaveImage(string path, int? productId);
-        void DeleteEntity(object entity);
+        void DeleteEntity(int? id, string table);
     }
 }

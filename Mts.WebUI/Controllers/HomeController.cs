@@ -32,5 +32,12 @@ namespace Mts.WebUI.Controllers
             else
                 throw new HttpException(404, "not found type of device");
         }
+
+        [HttpPost]
+        public ActionResult Search(string query)
+        {
+            // NEED TO REALIZE!!!!!!!!!!!!!!!!!!!!!!!//
+            return View();
+        }
     }
 }

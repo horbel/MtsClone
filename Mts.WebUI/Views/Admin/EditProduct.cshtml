@@ -36,7 +36,7 @@
 
 <div id="ProductImage">
     @{
-        if (Model.ProductImageLocation != null)
+        if (Model!=null && Model.ProductImageLocation != null)
         {
             <img width="200" height="300" src="@Url.Content(@Model.ProductImageLocation)" />
         }
@@ -51,7 +51,10 @@
     @using (Html.BeginForm("UploadImage", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <input type="file" name="file" />
-        <input type="hidden" value="@Model.ID" name="id" />
+
+        string id = Model == null ? "0" : $"{Model.ID}";
+
+        <input type="hidden" value="@id" name="id" />
         <input type="submit" value="Ok" />
     }
 

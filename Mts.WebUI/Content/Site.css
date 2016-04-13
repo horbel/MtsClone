@@ -21,6 +21,10 @@ body {
     background: #e9ea98;
     height: 50px;
     width: 900px;
+    display:inline-block;
+}
+#logo{
+ float:left;   
 }
 
 #navigation {
@@ -213,4 +217,7 @@ div.offers h2{
     font-size: 20px;
     border: none;
 }
-
+/*SEARCH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+#search{
+    float:left;
+}

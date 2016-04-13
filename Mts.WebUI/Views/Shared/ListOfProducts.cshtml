@@ -16,11 +16,36 @@
         @foreach (var item in Model)
         {
             <tr>               
-                <td>@item.ProductTypes.Name</td>
-                <td>@item.Brands.Name</td>
+                @{
+                    if (item.ProductTypes == null)
+                    {
+                        <td>No Category</td>
+                    }
+                    else
+                    {
+                        <td>@item.ProductTypes.Name</td>
+                    }
+                }
+
+                @{
+                    if (item.Brands == null)
+                    {
+                        <td>No Brand</td>
+                    }
+                    else
+                    {
+                        <td>@item.Brands.Name</td>
+                    }
+                }                
                 <td>@item.ModelName</td>
                 <td>@item.Price.ToString("c")</td>      
-                <td>@Html.RouteLink("Edit", new { controller = "admin", action = "Edit", id = item.ID, table = "products" })</td>                     
+                <td>@Html.RouteLink("Edit", new { controller = "admin", action = "Edit", id = item.ID, table = "products" })</td>   
+                <td>
+                    @using (Html.BeginForm(new { action = "Delete", controller = "admin", id = item.ID, table = "products" }))
+                    {
+                        <input type="submit" value="Delete" />
+                    }
+                </td>                  
             </tr>
         }       
         

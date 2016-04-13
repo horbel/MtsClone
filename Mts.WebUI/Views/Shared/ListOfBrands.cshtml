@@ -14,7 +14,13 @@
         {
             <tr>                
                 <td>@item.Name</td>       
-                <td>@Html.RouteLink("Edit", new {controller="admin", action="Edit", id=item.ID, table="brands" })</td>         
+                <td>@Html.RouteLink("Edit", new {controller="admin", action="Edit", id=item.ID, table="brands" })</td>    
+                <td>
+                    @using (Html.BeginForm(new { action = "Delete", controller = "admin", id = item.ID, table = "brands" }))
+                    {
+                        <input type="submit" value="Delete" />
+                    }
+                </td>     
             </tr>
         }
 

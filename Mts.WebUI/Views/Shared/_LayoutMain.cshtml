@@ -6,31 +6,41 @@
     <link href="~/Content/Site.css" type="text/css" rel="stylesheet" />
     <title>@ViewBag.Title</title>
 </head>
-<body>    
+<body>
     <div id="container">
         <div id="header">
+            <div id="logo">
             <a href="@Url.RouteUrl(new { action = "Index", controller = "Home" })">
                 <img src="~/Resources/logo.png" width="100" height="50" />
             </a>
         </div>
-
-        <div id="navigation">@{ Html.RenderAction("Menu", "Nav"); }
-        </div>
-
-        <div id="baner">
-            <img width="900" height="290" src="~/Resources/p8  BTSpeaker.jpg"/>
-        </div>
-
-        <div>            
-            @RenderBody()
-        </div>
-
-        <div id="clear">
-        </div>
-
-        <div id="footer">
-            @{Html.RenderPartial("FooterPartial");}
+        <div id="search">
+            @using (Html.BeginForm())
+            {
+                <input type="search" placeholder="Enter here...">
+            }
         </div>
     </div>
+
+    <div id="navigation">
+        @{ Html.RenderAction("Menu", "Nav"); }
+</div>
+
+<div id="baner">
+    <img width="900" height="290" src="~/Resources/p8  BTSpeaker.jpg" />
+</div>
+
+<div>
+    @RenderBody()
+</div>
+
+<div id="clear">
+</div>
+
+<div id="footer">
+    @{Html.RenderPartial("FooterPartial");}
+</div>
+    </div>
 </body>
+
 </html>

@@ -179,9 +179,9 @@ namespace Mts.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(object entity)
+        public ActionResult Delete(int? id, string table)
         {
-            repository.DeleteEntity(entity);
+            repository.DeleteEntity(id, table);
             return RedirectToAction("Index");
         }
     }

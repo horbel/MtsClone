@@ -87,35 +87,43 @@ namespace Mts.Domain.Concrete
         }
         public void SaveImage(string path, int? productId)
         {
-            if(path!=null && productId!=null)
+            if (path != null && productId != null)
             {
                 Products dbEntry = context.Products.Find(productId);
-                if(dbEntry != null)
+                if (dbEntry != null)
                 {
                     dbEntry.ProductImageLocation = path;
                 }
             }
             context.SaveChanges();
         }
-        public void DeleteEntity(object entity)
+
+        public void DeleteEntity(int? id, string table)
         {
-            string type = entity.GetType().ToString();
-            
-            switch (type)
+            try
             {
-                case "Products":
-                    context.Products.Remove(context.Products.Find((entity as Products).ID));
-                    break;
-                case "Brands":
-                    context.Brands.Remove(context.Brands.Find((entity as Brands).ID));
-                    break;
-                case "ProductTypes":
-                    context.ProductTypes.Remove(context.ProductTypes.Find((entity as ProductTypes).ID));
-                    break;
-                default:
-                    break;
+                switch (table)
+                {
+                    case "products":
+                        context.Products.Remove(context.Products.Find(id));
+                        break;
+                    case "brands":
+                        context.Brands.Remove(context.Brands.Find(id));
+                        break;
+                    case "types":
+                        ProductTypes dbEntity = context.ProductTypes.Find(id);
+                        context.ProductTypes.Remove(dbEntity);
+                        break;
+                    default:
+                        break;
+                }
+                
+                context.SaveChanges();
             }
-            context.SaveChanges();
+            catch (Exception ex)
+            {
+                Trace.TraceError(ex.Message);
+            }
         }
 
     }
