@@ -16,9 +16,19 @@ namespace Mts.WebUI.Controllers
         {
             repository = repositoryParam;
         }
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            return View(repository.Products.ToList());
+            if (search != null)
+            {
+                var results = repository.Products.Where(x => x.ModelName.StartsWith(search));
+                if(results.Count()==0)
+                {
+                    results = repository.Products.Where(x => x.Brands.Name.StartsWith(search));
+                }
+                return View("SearchResults", results.ToList());
+            }
+
+            return View("Index", repository.Products.ToList());
         }
 
         public ViewResult ListByCategory(string category = null)

@@ -1,0 +1,35 @@
+﻿@using Mts.Domain;
+@model List<Products>
+
+@{
+    ViewBag.Title = "ListByCategory";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search Results</title>
+</head>
+<body>    
+    <div class="offers">
+        <h2>SearchResults</h2>
+        @{
+            if (Model.Count > 0)
+            {
+                foreach (var p in Model)
+                {
+                    Html.RenderPartial("ProductSummary", p);
+                }
+            }
+            else
+            {
+                <p>Nothing found</p>
+            }
+        }
+        
+    </div>
+</body>
+</html>
+
+

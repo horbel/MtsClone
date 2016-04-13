@@ -15,9 +15,9 @@
             </a>
         </div>
         <div id="search">
-            @using (Html.BeginForm())
+            @using (Html.BeginForm("Index", "Home"))
             {
-                <input type="search" placeholder="Enter here...">
+                <input type="search" placeholder="Enter here... " name="search">
             }
         </div>
     </div>

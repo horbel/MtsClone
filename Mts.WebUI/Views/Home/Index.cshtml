@@ -57,7 +57,7 @@
 
 @helper showRandomItems(List<Products> products, int randomizer)
 {
-Random rand = new Random(DateTime.Now.Second+randomizer);
+Random rand = new Random(DateTime.Now.Second + randomizer);
 List<int> listOfInt = new List<int>();
 int val;
 while (listOfInt.Count < 3)
@@ -80,7 +80,7 @@ while (listOfInt.Count < 3)
         listOfInt.Add(val);
     }
 }
-for(int i=0; i<listOfInt.Count; i++)
+for (int i = 0; i < listOfInt.Count; i++)
 {
     Html.RenderPartial("ProductSummary", products[listOfInt[i]]);
 }
